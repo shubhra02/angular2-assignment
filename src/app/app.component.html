@@ -1,0 +1,76 @@
+<nav class="navbar navbar-inverse" style="background-color: lightgray">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Crud Application</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Show Tasks</a></li>
+                <li><a href="#">Create Tasks</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<div id='createTask' style="background-color: lightblue">
+    <form class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-sm-4" >Date:</label>
+            <div class="col-sm-12">
+                <input type="date" class="form-control" #date>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-4" >Title:</label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control" #title >
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Description:</label>
+            <div class="col-sm-12">
+            <textarea class="form-control" #description >
+                </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Priority</label>
+            <div class="col-sm-12">
+                <select class="form-control" #priority>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="col-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-primary"
+                        (click)="getData(date.value,title.value,description.value,priority.value)">Submit</button>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success" (click)="showData()">Show Data</button>
+            </div>
+        </div>
+    </form>
+</div>
+<router-outlet></router-outlet>
+<div id='showTask'>
+    <ul>
+        <li *ngFor="let field of date">
+            {{ field }}
+        </li>
+    </ul>
+</div>
